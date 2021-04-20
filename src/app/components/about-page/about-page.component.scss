@@ -1,0 +1,189 @@
+p {
+    text-align: center;
+    color: white;
+    font-size: 40px;
+}
+
+p {
+    text-align: center;
+}
+
+* {
+	margin: 0;
+	padding: 0;
+}
+
+.contenedor {
+	width: 90%;
+	max-width: 1000px;
+	margin: 20px auto;
+	display: grid;
+	grid-gap: 20px;
+	grid-template-columns: repeat(3, 1fr);
+	grid-template-rows: repeat(2, auto);
+
+	grid-template-areas: "contenido contenido contenido"
+						 "footer footer footer";
+}
+
+.contenedor > div,
+.contenedor .contenido-index,
+.contenedor .footer {
+	background: rgba(66, 66, 66, 0.555);
+	padding: 20px;
+	border-radius: 4px;
+}
+
+.contenedor .contenido-index {
+	grid-area: contenido;
+	color: white;
+	padding: 30px;
+	display: grid;
+	grid-gap: 15px;
+	grid-template-columns: repeat(2, 1fr);
+	grid-template-rows: repeat(2, auto);
+	grid-template-areas: "title form"
+						 "image form";
+}
+
+.div-title-content {
+	grid-area: title;
+	margin-right: 3%;
+}
+
+.title-content {
+	font-family: 'Lobster', cursive;
+    font-size: 85px;
+    text-align: center;
+	padding: 40px;
+}
+
+.subtitle-content {
+    font-family: 'IBM Plex Sans', sans-serif;
+    font-size: 25px;
+    text-align: center;
+	margin-top: 0px;
+}
+
+.div-img-content{
+	grid-area: image;
+	margin-right: 3%;
+}
+
+.img-content{    
+    max-width: 100%;
+}
+
+.div-form{
+    background-color: rgba(184, 184, 184, 0.192);
+	grid-area: form;
+    width: 100%;
+	height: 100%;
+    border-radius: 5px;
+}
+
+.form-style {
+	display: grid;
+	grid-gap: 10px;
+	grid-template-columns: repeat(2, 1fr);
+	grid-template-rows: repeat(7, auto);
+	grid-template-areas: "title title"
+						 "type type"
+						 "origen origen"
+						 "destino destino"
+						 "fechaS fechaR"
+						 "niños adultos"
+						 "btn btn";
+	width: 90%;
+	margin-left: auto;
+	margin-right: auto;
+
+}
+.div-form-title {
+	grid-area: title;
+	text-align: center;
+	margin-top: 5%;
+}
+
+.div-form-title > h1 {
+	font-size: 40px;
+	font-family: 'IBM Plex Sans', sans-serif;
+}
+
+.div-form-typeOfFly {
+	grid-area: type;
+	margin-left: auto;
+	margin-right: auto;
+}
+.div-form-origen {
+	grid-area: origen;
+	width: 100%;
+	margin-left: auto;
+	margin-right: auto;
+}
+.div-form-destino {
+	grid-area: destino;
+	width: 100%;
+	margin-left: auto;
+	margin-right: auto;
+}
+.div-form-fechaS {
+	grid-area: fechaS;
+	width: 100%;
+	margin-left: auto;
+	margin-right: auto;
+}
+.div-form-fechaR {
+	grid-area: fechaR;
+	width: 100%;
+	margin-left: auto;
+	margin-right: auto;
+}
+.div-form-niños {
+	grid-area: niños;
+	width: 50%;
+	margin-left: auto;
+	margin-right: auto;
+	text-align: center;
+}
+.div-form-adultos {
+	grid-area: adultos;
+	width: 50%;
+	margin-left: auto;
+	margin-right: auto;
+	text-align: center;
+}
+.div-form-btn {
+	background: rgba(0, 0, 0, 0.623);
+	grid-area: btn;
+	width: 60%;
+	padding: 10px;
+	margin-top: 8%;
+	text-align: center;
+	margin-left: auto;
+	margin-right: auto;
+	border-radius: 5px;
+}
+
+.contenedor .footer {
+	background: rgba(37, 37, 37, 0.733);
+	grid-area: footer;
+	color: white;
+}
+
+.table {
+	color: white;
+}
+
+.controls-table {
+	padding: 40px;
+	text-align: center;
+}
+
+@media screen and (max-width: 768px){
+	.contenedor {
+		grid-template-areas: "header header header"
+						 	 "contenido contenido contenido"
+							 "footer footer footer";
+	}
+}

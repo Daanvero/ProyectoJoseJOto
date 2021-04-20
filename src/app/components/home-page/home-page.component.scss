@@ -1,0 +1,68 @@
+.home {
+    width: 100%;
+	margin: 20px auto;
+	display: grid;
+	/* grid-gap: 20px; */
+	grid-template-columns: repeat(1, 1fr);
+	grid-template-rows: repeat(3, auto);
+	grid-template-areas: "headerSlide"
+						 "contenido"
+						 "footer";
+}
+
+.header {
+    grid-area: headerSlide;
+	width: 80%;
+	margin-left: auto;
+	margin-right: auto;
+	margin-bottom: 20px;
+	color: white;
+}
+
+.title-header {
+	text-align: center;
+}
+
+.slidesxd {
+	display: grid;
+	grid-gap: 20px;
+	grid-template-columns: repeat(3, 1fr);
+	grid-template-rows: repeat(1, auto);
+	grid-template-areas: "guadalajara monterrey mazatlan";
+}
+
+.ciudadxd {
+	color: white;
+	font-size: 22px;
+	
+}
+
+.precioxd {
+	color: white;
+	font-size: 18px;
+}
+
+.content-home {
+    grid-area: contenido;
+	width: 80%;
+	margin-left: auto;
+	margin-right: auto;
+	margin-top: 20px;
+	height: 500px;
+    /* background: rgba(37, 37, 37, 0.774); */
+	color: white;
+	text-align: center;
+}
+
+.xdxdxd {
+	font-family: "Lobster", cursive;
+	font-size: 50px;
+}
+
+.footer-home {
+    grid-area: footer;
+    background: rgba(0, 0, 0, 0.692);
+	height: 500px;
+	color: white;
+	text-align: center;
+}

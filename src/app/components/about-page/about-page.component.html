@@ -1,0 +1,119 @@
+<div class="contenedor">
+    <main class="contenido-index">
+        <div class="div-title-content">
+            <p class="title-content">VentoLine</p>
+            <p class="subtitle-content">Comienza tu aventura!</p>
+        </div>
+        <div class="div-img-content">
+            <img class="img-content"
+                src="https://firebasestorage.googleapis.com/v0/b/ventolinedb.appspot.com/o/viajando.jpg?alt=media&token=40f3c44b-ae1b-4081-ae15-de6f65e93263">
+        </div>
+
+        <div class="div-form">
+            <form class="form-style" name="reserva" [formGroup]="vueloForm">
+                <div class="div-form-title">
+                    <h1>Reserva tu viaje</h1>
+                </div>
+
+                <!-- <div class="div-form-typeOfFly">
+                    <label>
+                        <input type="radio" name="tipo" formControlName="Redondo" value="Redondo" id="Redondo"
+                            (click)="setStateRegreso($event)"> Redondo
+                    </label>
+                    <label>
+                        <input type="radio" name="tipo" formControlName="Sencillo" value="Sencillo" id="Sencillo"
+                            (click)="setStateRegreso($event)"> Sencillo
+                    </label>
+                </div> -->
+
+                <!-- <div class="div-form-typeOfFly">
+                    <mat-radio-group aria-label="Select an option">
+                        <mat-radio-button value="Redondo" formControlName="Redondo" (click)="activarRegreso()">
+                            Redondo</mat-radio-button>
+                        <mat-radio-button value="Sencillo" formControlName="Sencillo" (click)="desactivarRegreso()">
+                            Sencillo</mat-radio-button>
+                    </mat-radio-group>
+                </div> -->
+
+                <div class="div-form-typeOfFly">
+                    <mat-radio-group aria-label="Select an option">
+                        <label>
+                            <input type="radio" (click)="activarRegreso()" formControlName="Redondo" value="Redondo"
+                                id="Redondo"> Redondo
+                        </label>
+                        <label>
+                            <input type="radio" (click)="desactivarRegreso()" formControlName="Sencillo"
+                                value="Sencillo" id="Sencillo"> Sencillo
+                        </label>
+                    </mat-radio-group>
+                </div>
+
+                <div class="div-form-origen">
+                    <label class="form-label">Origen</label>
+                    <input type="text" class="form-control" formControlName="Origen" placeholder="Origen">
+                </div>
+                <div class="div-form-destino">
+                    <label class="form-label">Destino</label>
+                    <input type="text" class="form-control" formControlName="Destino" placeholder="Destino">
+                </div>
+                <div class="div-form-fechaS">
+                    <label>Fecha de salida</label>
+                    <br>
+                    <input type="date" id="Fsalida" class="form-control" formControlName="FechaSalida" min="2021-01-01"
+                        max="2030-01-01">
+                </div>
+                <div class="div-form-fechaR" [hidden]="habilitarRegreso">
+                    <label>Fecha de regreso</label>
+                    <br>
+                    <input type="date" id="Fregreso" class="form-control" formControlName="FechaRegreso"
+                        min="2021-01-01" max="2030-01-01">
+                </div>
+                <!-- <div class="div-form-niños">
+                    <label>Niños</label>
+                    <input type="number" id="Niños" class="form-control" name="Niños" value="0" min="0">
+                </div>
+                <div class="div-form-adultos">
+                    <label>Adultos</label>
+                    <input type="number" id="Adultos" class="form-control" name="Adultos" value="0" min="0">
+                </div> -->
+
+                <div class="div-form-btn" type="submit" (click)="crearVuelo()">
+                    <label type="submit">Buscar Vuelos</label>
+                </div>
+            </form>
+        </div>
+    </main>
+    <footer class="footer">
+        <div>
+            <h2>Vuelos Disponibles</h2>
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>ORIGEN</th>
+                        <th>DESTINO</th>
+                        <th>REDONDO</th>
+                        <th>SENCILLO</th>
+                        <th>FECHA SALIDA</th>
+                        <th>FECHA REGRESO</th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let item of collection.data | paginate: config">
+                        <td>{{item.Origen}}</td>
+                        <td>{{item.Destino}}</td>
+                        <td>{{item.Redondo}}</td>
+                        <td>{{item.Sencillo}}</td>
+                        <td>{{item.FechaSalida}}</td>
+                        <td>{{item.FechaRegreso}}</td>
+                        <!-- <td>
+                            <button type="button" class="btn btn-primary">Reservar</button>
+                        </td> -->
+                    </tr>
+                </tbody>
+            </table>
+            <pagination-controls class="controls-table" (pageChange)="pageChanged($event)"></pagination-controls>
+
+        </div>
+    </footer>
+</div>
