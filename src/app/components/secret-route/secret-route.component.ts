@@ -44,17 +44,20 @@ export class SecretRouteComponent implements OnInit {
 
     //get vuelos2
     this.firebaseSerService.getVuelos().subscribe(resp => {
-      /* resp.filter((e:any) => e.payload.doc.data().UserIdLog == this.currentUserID) */
       this.collection.data = resp.map((e: any) => {
-        return {
-          UserIdLog: e.payload.doc.data().UserIdLog,
-          Origen: e.payload.doc.data().Origen,
-          Destino: e.payload.doc.data().Destino,
-          FechaSalida: e.payload.doc.data().FechaSalida,
-          FechaRegreso: e.payload.doc.data().FechaRegreso,
-          Redondo: e.payload.doc.data().Redondo,
-          Sencillo: e.payload.doc.data().Sencillo,
-        }
+          if(e.payload.doc.data().UserIdLog === this.currentUserID){
+            return {
+                UserIdLog: e.payload.doc.data().UserIdLog,
+                Origen: e.payload.doc.data().Origen,
+                Destino: e.payload.doc.data().Destino,
+                FechaSalida: e.payload.doc.data().FechaSalida,
+                FechaRegreso: e.payload.doc.data().FechaRegreso,
+                Redondo: e.payload.doc.data().Redondo,
+                Sencillo: e.payload.doc.data().Sencillo,
+            }
+          }else{
+              return "No tienes vuelos reservados!"
+          }
       })
     },
       error => {
