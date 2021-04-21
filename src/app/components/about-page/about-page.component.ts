@@ -89,6 +89,7 @@ export class AboutPageComponent implements OnInit {
 
   crearVuelo(): void {
     this.firebaseSerService.createVuelo(this.vueloForm.value).then(resp => {
+      alert('Reservación creada!');
       console.log("Vuelo creado");
       this.vueloForm.reset();
     }).catch(error => {
